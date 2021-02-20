@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width" />
+<title>大转盘</title>
+<style type="text/css">
+#prizewheel_zone{
+	width:455px;
+	height:455px;
+	margin:40px auto auto;
+	position:relative;
+	overflow:hidden;
+}
+#prizewheel{
+	width:455px;
+	height:455px;
+}
+</style>
+</head>
+<body>
+
+<div id="prizewheel_zone">
+	<div id="prizewheel"></div>
+</div>
+
+<input type="button" id="start" value="开 始" />
+<input type="button" id="stop" value="结 束" />
+<script type="text/javascript" src="js/prizewheel.js"></script>
+<script type="text/javascript">
+	
+	var prizes = [
+		{	
+			message:"会员网站50积分！"
+		},
+		{	
+			message:"很抱歉，您未能获奖！",
+			type:"empty"
+		},
+		{	
+			message:"会员网站300积分！"
+		}
+		,
+		{	
+			message:"《笑傲江湖OL》坐骑礼包！"
+		}
+		,
+		{	
+			message:"会员网站200积分！"
+		}
+		,
+		{	
+			message:"很抱歉，您未能获奖！",
+			type:"empty"
+		}
+		,
+		{	
+			message:"会员网站100积分！"
+		},
+		{	
+			message:"《笑傲江湖OL》技嘉礼包！"
+		}
+	];
+	
+	var prizeWheel = new PrizeWheel({
+		containerId : "prizewheel",
+		arrowId : "arrow",
+		diameter : 455,
+		src : "images/prizewheel.png",
+		afterLottery:function(index){
+			var prize = prizes[index];
+			var message = prize.message;
+			if(prize.type !="empty"){
+				message = "恭喜您，您抽中了" + prize.message;
+			}
+			setTimeout(function(){
+				alert(message);
+			},3000);
+		}
+	});
+	document.getElementById("start").onclick = function(){
+		prizeWheel.start();
+	};
+	document.getElementById("stop").onclick = function(){
+		prizeWheel.stop();
+	};
+</script>
+</body>
+</html>

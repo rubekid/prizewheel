@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width" />
+<title>大转盘</title>
+<script type="text/javascript" src="js/html5.js"></script>
+<script type="text/javascript" src="js/excanvas.js"></script>
+
+<style type="text/css">
+#plate_zone{
+	width:455px;
+	height:455px;
+	margin:40px auto auto;
+	position:relative;
+	overflow:hidden;
+}
+#arrow{
+	width:113px;
+	height:153px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-56.5px;
+	margin-top:-96.5px;
+	background:url('arrow.png') no-repeat;
+	z-index:9999;
+}
+
+</style>
+</head>
+<body>
+
+<div id="plate_zone">
+	<canvas id="plate" width="455" height="455"></canvas>
+	<div id="arrow"></div>
+</div>
+
+<input type="button" id="start" value="开 始" />
+<input type="button" id="stop" value="结 束" />
+
+
+<script type="text/javascript">
+	window.onload = function(){
+		var plate = document.getElementById("plate");
+		var width = plate.width;
+		var  height = plate.height;
+		var context = plate.getContext('2d');
+		var image = new Image();
+		image.onload = function(){
+			context.translate(width/2, height/2);
+			context.drawImage(image, -width/2, -height/2, width, height);
+			
+		};
+		image.src = "plate.png";
+		var prizes = [
+			{	
+				id:1,
+				message:"会员网站50积分！"
+			},
+			{	
+				id:2,
+				message:"很抱歉，您未能获奖！",
+				type:"empty"
+			},
+			{	
+				id:3,
+				message:"会员网站300积分！"
+			}
+			,
+			{	
+				id:4,
+				message:"《笑傲江湖OL》坐骑礼包！"
+			}
+			,
+			{	
+				id:5,
+				message:"会员网站200积分！"
+			}
+			,
+			{	
+				id:6,
+				message:"很抱歉，您未能获奖！",
+				type:"empty"
+			}
+			,
+			{	
+				id:7,
+				message:"会员网站100积分！"
+			},
+			{	
+				id:8,
+				message:"《笑傲江湖OL》技嘉礼包！"
+			}
+		];
+		
+		var _t = null;
+		var _angle = 0;
+		var state = 0;
+		
+		function clear(){
+			if(_t){
+				clearInterval(_t);
+			}
+		}
+		
+		function running(){
+			clear();
+			_t = setInterval(function(){
+				_angle =  (_angle + 20) % 360;
+				context.clearRect(0, 0, width, height);
+				context.beginPath();
+				context.rotate( _angle * Math.PI/180);
+				context.drawImage(image, -width/2, -height/2, width, height);
+			},30);
+		}
+		
+		function lottery(id, message){
+			clear();
+			var angle = 360 - (id -1) * 45 - 23 ;
+			var _a = 10;
+			var t = 50;
+			
+			context.clearRect(0, 0, width, height);
+			context.beginPath();
+			context.rotate( 0 );
+			context.drawImage(image, -width/2, -height/2, width, height);
+			var _angle = 0;
+			console.log(angle);
+			var _tt = setInterval(function(){
+				_angle =  (_angle + _a) % 360;
+				console.log(_angle);
+				if(_angle >= angle){
+					_angle = angle;
+				}
+				context.clearRect(0, 0, width, height);
+				context.beginPath();
+				context.rotate( _angle * Math.PI/180);
+				context.drawImage(image, -width/2, -height/2, width, height);
+				if(_angle >= angle){
+					clearInterval(_tt);	
+				}
+			},50);
+		}
+		
+		document.getElementById("start").onclick = function(){
+			
+			if(!state){
+				alert("dfdf");
+				state = 1;
+				running();
+			}
+		};
+		
+		document.getElementById("stop").onclick = function(){
+			if(state){
+				var index = parseInt(Math.random() * 8);
+				var prize = prizes[index];
+				var message = prize.message;
+				if(prize.type !="empty"){
+					message = "恭喜您，您抽中了" + prize.message;
+				}
+				lottery(prize.id, message);
+				state = 0;
+				
+			}
+		};
+	};
+</script>
+</body>
+</html>

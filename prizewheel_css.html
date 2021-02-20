@@ -1,0 +1,521 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, width=device-width" />
+<title>大转盘</title>
+<style type="text/css">
+#plate_zone{
+	width:455px;
+	height:455px;
+	margin:40px auto auto;
+	position:relative;
+	overflow:hidden;
+}
+#plate{
+	border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	background:url('images/prizewheel.png') no-repeat;
+	width:455px;
+	height:455px;
+}
+#arrow{
+	width:113px;
+	height:153px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-56.5px;
+	margin-top:-96.5px;
+	background:url('images/arrow.png') no-repeat;
+	z-index:9999;
+}
+.running{
+	-moz-animation: rotate 0.2s linear infinite;
+	-ms-animation: rotate 0.2s linear infinite;
+	animation: rotate 0.2s linear infinite;
+}
+.result1{
+	-moz-transform: rotate(697deg);
+	-webkit-transform: rotate(697deg);
+	transform: rotate(697deg);
+	
+	-moz-animation: result1 2s ease-out 1;
+	-ms-animation: result1 2s ease-out 1;
+	animation: result1 2s ease-out 1;
+}
+.result2{
+	-moz-transform: rotate(652deg);
+	-webkit-transform: rotate(652deg);
+	transform: rotate(652deg);
+	
+	-moz-animation: result2 2s ease-out 1;
+	-ms-animation: result2 2s ease-out 1;
+	animation: result2 2s ease-out 1;
+}
+
+.result3{
+	-moz-transform: rotate(607deg);
+	-webkit-transform: rotate(607deg);
+	transform: rotate(607deg);
+	
+	-moz-animation: result3 2s ease-out 1;
+	-ms-animation: result3 2s ease-out 1;
+	animation: result3 2s ease-out 1;
+}
+.result4{
+	-moz-transform: rotate(562deg);
+	-webkit-transform: rotate(562deg);
+	transform: rotate(562deg);
+	
+	-moz-animation: result4 2s ease-out 1;
+	-ms-animation: result4 2s ease-out 1;
+	animation: result4 2s ease-out 1;
+}
+
+.result5{
+	-moz-transform: rotate(517deg);
+	-webkit-transform: rotate(517deg);
+	transform: rotate(517deg);
+	
+	-moz-animation: result5 2s ease-out 1;
+	-ms-animation: result5 2s ease-out 1;
+	animation: result5 2s ease-out 1;
+}
+.result6{
+	-moz-transform: rotate(472deg);
+	-webkit-transform: rotate(472deg);
+	transform: rotate(472deg);
+	
+	-moz-animation: result6 2s ease-out 1;
+	-ms-animation: result6 2s ease-out 1;
+	animation: result6 2s ease-out 1;
+}
+
+.result7{
+	-moz-transform: rotate(427deg);
+	-webkit-transform: rotate(427deg);
+	transform: rotate(427deg);
+	
+	-moz-animation: result7 2s ease-out 1;
+	-ms-animation: result7 2s ease-out 1;
+	animation: result7 2s ease-out 1;
+}
+.result8{
+	-moz-transform: rotate(382deg);
+	-webkit-transform: rotate(382deg);
+	transform: rotate(382deg);
+	
+	-moz-animation: result8 2s ease-out 1;
+	-ms-animation: result8 2s ease-out 1;
+	animation: result8 2s ease-out 1;
+}
+
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes rotate {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(360deg);
+	}
+}
+
+@-moz-keyframes rotate {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+
+	to {
+		-moz-transform: rotate(360deg);
+	}
+}
+
+@-ms-keyframes rotate {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(360deg);
+	}
+}
+/*结果1*/
+@keyframes result1 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(697deg);
+	}
+}
+@-webkit-keyframes result1 {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(697deg);
+	}
+}
+
+@-moz-keyframes result1 {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+
+	to {
+		-moz-transform: rotate(697deg);
+	}
+}
+
+@-ms-keyframes result1 {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(697deg);
+	}
+}
+
+/*结果2*/
+@keyframes result2 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(652deg);
+	}
+}
+@-webkit-keyframes result2 {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(652deg);
+	}
+}
+
+@-moz-keyframes result2 {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+
+	to {
+		-moz-transform: rotate(652deg);
+	}
+}
+
+@-ms-keyframes result2 {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(652deg);
+	}
+}
+
+/*结果3*/
+@keyframes result3 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(607deg);
+	}
+}
+@-webkit-keyframes result3 {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(607deg);
+	}
+}
+
+@-moz-keyframes result3 {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+
+	to {
+		-moz-transform: rotate(607deg);
+	}
+}
+
+@-ms-keyframes result3 {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(607deg);
+	}
+}
+
+/*结果4*/
+@keyframes result4 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(562deg);
+	}
+}
+@-webkit-keyframes result4 {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(562deg);
+	}
+}
+
+@-moz-keyframes result4 {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(562deg);
+	}
+}
+
+@-ms-keyframes result4 {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(562deg);
+	}
+}
+
+/*结果5*/
+@keyframes result5 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(517deg);
+	}
+}
+@-webkit-keyframes result5 {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(517deg);
+	}
+}
+
+@-moz-keyframes result5 {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(517deg);
+	}
+}
+
+@-ms-keyframes result5 {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(517deg);
+	}
+}
+
+/*结果6*/
+@keyframes result6 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(472deg);
+	}
+}
+@-webkit-keyframes result6 {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(472deg);
+	}
+}
+
+@-moz-keyframes result6 {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(472deg);
+	}
+}
+
+@-ms-keyframes result6 {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(472deg);
+	}
+}
+
+/*结果7*/
+@keyframes result7 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(427deg);
+	}
+}
+@-webkit-keyframes result7 {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(427deg);
+	}
+}
+
+@-moz-keyframes result7 {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(427deg);
+	}
+}
+
+@-ms-keyframes result7 {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(427deg);
+	}
+}
+
+/*结果8*/
+@keyframes result8 {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(382deg);
+	}
+}
+@-webkit-keyframes result8 {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+	to {
+		-webkit-transform: rotate(382deg);
+	}
+}
+
+@-moz-keyframes result8 {
+	from {
+		-moz-transform: rotate(0deg);
+	}
+	to {
+		-moz-transform: rotate(382deg);
+	}
+}
+
+@-ms-keyframes result8 {
+	from {
+		-ms-transform: rotate(0deg);
+	}
+	to {
+		-ms-transform: rotate(382deg);
+	}
+}
+
+
+</style>
+</head>
+<body>
+
+<div id="plate_zone">
+	<div id="plate"></div>
+	<div id="arrow"></div>
+</div>
+
+<input type="button" id="start" value="开 始" />
+<input type="button" id="stop" value="结 束" />
+<script type="text/javascript">
+	var plate = document.getElementById("plate");
+	var prizes = [
+		{	
+			id:1,
+			message:"会员网站50积分！"
+		},
+		{	
+			id:2,
+			message:"很抱歉，您未能获奖！",
+			type:"empty"
+		},
+		{	
+			id:3,
+			message:"会员网站300积分！"
+		}
+		,
+		{	
+			id:4,
+			message:"《笑傲江湖OL》坐骑礼包！"
+		}
+		,
+		{	
+			id:5,
+			message:"会员网站200积分！"
+		}
+		,
+		{	
+			id:6,
+			message:"很抱歉，您未能获奖！",
+			type:"empty"
+		}
+		,
+		{	
+			id:7,
+			message:"会员网站100积分！"
+		},
+		{	
+			id:8,
+			message:"《笑傲江湖OL》技嘉礼包！"
+		}
+	];
+	document.getElementById("start").onclick = function(){
+		if(plate.className != "running"){
+			plate.className = 'running';
+		}
+	};
+	document.getElementById("stop").onclick = function(){
+		if(plate.className == "running"){
+			var index = parseInt(Math.random() * 8);
+			var prize = prizes[index];
+			var message = prize.message;
+			plate.className = 'result' + prize.id;
+			
+			if(prize.type !="empty"){
+				message = "恭喜您，您抽中了" + prize.message;
+			}
+			setTimeout(function(){
+			alert(message);
+			},2000);
+			
+			
+		}
+		
+	};
+</script>
+</body>
+</html>
